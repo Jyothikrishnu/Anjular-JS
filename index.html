@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Anjular JS</title>
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script> -->
+	<script src="js/angular.min.js"></script>
+	 <script>
+	 	var app = angular.module("myApp", []);
+	 	app.controller("myCntrl",function($scope){
+	 		$scope.qty = "Jyoti Krishn";
+	 		$scope.names = ['jyothi','krishnu','sl'];
+	 		$scope.changeText = function(){
+	 			$scope.nameChange = "Akshay";
+	 		}
+	 	});
+	 	app.directive("jyothiJsl",function(){
+	 		return{
+	 			template : "<h1>My First Directive</h1>"
+	 		};
+	 	});
+	 </script>
+</head>
+<body>
+	<div ng-app="myApp" data-ng-controller="myCntrl" data-ng-init="nameChange:'Jyothi'">
+		<p data-ng-bind="qty"></p>
+		<ul>
+			<li ng-repeat="x in names" >{{x}}</li>
+		</ul>
+		<jyothi-jsl>
+			
+		</jyothi-jsl>
+		<w3-test-directive></w3-test-directive>
+		<h2 ng-click="changeText()">{{nameChange}}</h2>
+	</div>
+
+
+</body>
+</html>
